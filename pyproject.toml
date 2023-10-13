@@ -32,12 +32,3 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/x4nth055/emotion-recognition-using-speech"
 "Bug Tracker" = "https://github.com/x4nth055/emotion-recognition-using-speech/issues"
-
-[tool.setuptools]
-include-package-data = true
-
-[tool.setuptools.packages.find]
-where = ["audio_emotions"]
-
-[tool.setuptools.package-data]
-"*" = [".wav", ".csv"]
