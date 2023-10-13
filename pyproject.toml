@@ -38,3 +38,6 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["audio_emotions"]
+
+[tool.setuptools.package-data]
+"*" = [".wav", ".csv"]
