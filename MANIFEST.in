@@ -1,2 +1,4 @@
 include audio_emotions/data/**/*.wav
 include audio_emotions/audio_emotions/*.csv
+include audio_emotions/*
+include audio_emotions
