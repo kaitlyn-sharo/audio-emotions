@@ -94,9 +94,9 @@ Test Score: 0.8958333333333334
 Just pass an audio path to the `rec.predict()` method as shown below:
 ```python
 # this is a neutral speech from emo-db from the testing set
-print("Prediction:", rec.predict("data/emodb/wav/15a04Nc.wav"))
+print("Prediction:", rec.predict("audio_emotions/data/emodb/wav/15a04Nc.wav"))
 # this is a sad speech from TESS from the testing set
-print("Prediction:", rec.predict("data/validation/Actor_25/25_01_01_01_back_sad.wav"))
+print("Prediction:", rec.predict("audio_emotions/data/validation/Actor_25/25_01_01_01_back_sad.wav"))
 ```
 **Output:**
 ```
@@ -126,7 +126,7 @@ Prediction: angry
 ```
 Predicting probabilities is also possible (for classification ofc):
 ```python
-print(deeprec.predict_proba("data/emodb/wav/16a01Wb.wav"))
+print(deeprec.predict_proba("audio_emotions/data/emodb/wav/16a01Wb.wav"))
 ```
 **Output:**
 ```

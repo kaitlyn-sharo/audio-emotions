@@ -1,6 +1,6 @@
-from data_extractor import load_data
-from utils import extract_feature, AVAILABLE_EMOTIONS
-from create_csv import write_emodb_csv, write_tess_ravdess_csv, write_custom_csv
+from .data_extractor import load_data
+from .utils import extract_feature, AVAILABLE_EMOTIONS
+from .create_csv import write_emodb_csv, write_tess_ravdess_csv, write_custom_csv
 
 from sklearn.metrics import accuracy_score, make_scorer, fbeta_score, mean_squared_error, mean_absolute_error
 from sklearn.metrics import confusion_matrix
@@ -8,7 +8,7 @@ from sklearn.model_selection import GridSearchCV
 
 import matplotlib.pyplot as pl
 from time import time
-from utils import get_best_estimators, get_audio_config
+from .utils import get_best_estimators, get_audio_config
 import numpy as np
 import tqdm
 import os
@@ -52,8 +52,8 @@ class EmotionRecognizer:
         self.audio_config = get_audio_config(self.features)
         # datasets
         self.tess_ravdess = kwargs.get("tess_ravdess", True)
-        self.emodb = kwargs.get("emodb", True)
-        self.custom_db = kwargs.get("custom_db", True)
+        self.emodb = kwargs.get("emodb", False)
+        self.custom_db = kwargs.get("custom_db", False)
 
         if not self.tess_ravdess and not self.emodb and not self.custom_db:
             self.tess_ravdess = True
@@ -92,14 +92,14 @@ class EmotionRecognizer:
         """
         train_desc_files, test_desc_files = [], []
         if self.tess_ravdess:
-            train_desc_files.append(f"train_{self.tess_ravdess_name}")
-            test_desc_files.append(f"test_{self.tess_ravdess_name}")
+            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.tess_ravdess_name}")
+            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.tess_ravdess_name}")
         if self.emodb:
-            train_desc_files.append(f"train_{self.emodb_name}")
-            test_desc_files.append(f"test_{self.emodb_name}")
+            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.emodb_name}")
+            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.emodb_name}")
         if self.custom_db:
-            train_desc_files.append(f"train_{self.custom_db_name}")
-            test_desc_files.append(f"test_{self.custom_db_name}")
+            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.custom_db_name}")
+            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.custom_db_name}")
 
         # set them to be object attributes
         self.train_desc_files = train_desc_files

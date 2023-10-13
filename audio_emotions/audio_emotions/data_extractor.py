@@ -5,7 +5,7 @@ import pickle
 import tqdm
 import os
 
-from utils import get_label, extract_feature, get_first_letters
+from .utils import get_label, extract_feature, get_first_letters
 from collections import defaultdict
 
 
