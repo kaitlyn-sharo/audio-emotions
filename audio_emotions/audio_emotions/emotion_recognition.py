@@ -90,16 +90,17 @@ class EmotionRecognizer:
         - `self.train_desc_files` for training CSVs
         - `self.test_desc_files` for testing CSVs
         """
+        curpath = os.path.dirname(__file__)
         train_desc_files, test_desc_files = [], []
         if self.tess_ravdess:
-            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.tess_ravdess_name}")
-            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.tess_ravdess_name}")
+            train_desc_files.append(os.path.join(curpath, f"train_{self.tess_ravdess_name}"))
+            test_desc_files.append(os.path.join(curpath, f"test_{self.tess_ravdess_name}"))
         if self.emodb:
-            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.emodb_name}")
-            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.emodb_name}")
+            train_desc_files.append(os.path.join(curpath, f"train_{self.emodb_name}"))
+            test_desc_files.append(os.path.join(curpath, f"test_{self.emodb_name}"))
         if self.custom_db:
-            train_desc_files.append(f"audio_emotions/audio_emotions/train_{self.custom_db_name}")
-            test_desc_files.append(f"audio_emotions/audio_emotions/test_{self.custom_db_name}")
+            train_desc_files.append(os.path.join(curpath, f"train_{self.custom_db_name}"))
+            test_desc_files.append(os.path.join(curpath, f"test_{self.custom_db_name}"))
 
         # set them to be object attributes
         self.train_desc_files = train_desc_files

@@ -27,7 +27,8 @@ class AudioExtractor:
         """
         self.audio_config = audio_config if audio_config else {'mfcc': True, 'chroma': True, 'mel': True, 'contrast': False, 'tonnetz': False}
         self.verbose = verbose
-        self.features_folder_name = features_folder_name
+        curpath = os.path.dirname(__file__)
+        self.features_folder_name = os.path.join(curpath, '..', features_folder_name)
         self.classification = classification
         self.emotions = emotions
         self.balance = balance
