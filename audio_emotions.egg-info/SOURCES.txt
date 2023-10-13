@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+audio_emotions.egg-info/PKG-INFO
+audio_emotions.egg-info/SOURCES.txt
+audio_emotions.egg-info/dependency_links.txt
+audio_emotions.egg-info/requires.txt
+audio_emotions.egg-info/top_level.txt
